@@ -11,33 +11,76 @@ import UIKit
 
 public extension UIView{
     
-    static var cornerRadius: CGFloat = 15
     static var shadowRadius: CGFloat = 2
     
-    func soft(){
+    /// 凸起
+    func SoftRaised(){
         
+        guard let sublayers = self.layer.sublayers else {
+            return
+        }
+        for layer in sublayers{
+            if layer.name == "darkShadow" || layer.name == "lightShadow"{
+                layer.removeFromSuperlayer()
+            }
+        }
         self.layer.masksToBounds = false
         let darkShadow = CALayer()
+        darkShadow.name = "darkShadow"
         darkShadow.frame = bounds
         darkShadow.backgroundColor = backgroundColor?.cgColor
         darkShadow.shadowColor = UIColor(red: 0.87, green: 0.89, blue: 0.93, alpha: 1.0).cgColor
-        darkShadow.cornerRadius = UIView.cornerRadius
+        darkShadow.cornerRadius = self.layer.cornerRadius
         darkShadow.shadowOffset = CGSize(width: UIView.shadowRadius, height: UIView.shadowRadius)
         darkShadow.shadowOpacity = 1
         darkShadow.shadowRadius = UIView.shadowRadius
         self.layer.insertSublayer(darkShadow, at: 0)
 
         let lightShadow = CALayer()
+        lightShadow.name = "lightShadow"
         lightShadow.frame = bounds
         lightShadow.backgroundColor = backgroundColor?.cgColor
         lightShadow.shadowColor = UIColor.white.cgColor
-        lightShadow.cornerRadius = UIView.cornerRadius
+        lightShadow.cornerRadius = self.layer.cornerRadius
         lightShadow.shadowOffset = CGSize(width: -UIView.shadowRadius, height: -UIView.shadowRadius)
         lightShadow.shadowOpacity = 1
         lightShadow.shadowRadius = UIView.shadowRadius
         self.layer.insertSublayer(lightShadow, at: 0)
-        
-        
+    }
+    
+    /// 凹陷
+    func SoftConcave(){
+        //先清空
+        guard let sublayers = self.layer.sublayers else {
+            return
+        }
+        for layer in sublayers{
+            if layer.name == "darkShadow" || layer.name == "lightShadow"{
+                layer.removeFromSuperlayer()
+            }
+        }
+        self.layer.masksToBounds = false
+        let darkShadow = CALayer()
+        darkShadow.name = "darkShadow"
+        darkShadow.frame = bounds
+        darkShadow.backgroundColor = backgroundColor?.cgColor
+        darkShadow.shadowColor = UIColor(red: 0.87, green: 0.89, blue: 0.93, alpha: 1.0).cgColor
+        darkShadow.cornerRadius = self.layer.cornerRadius
+        darkShadow.shadowOffset = CGSize(width: -UIView.shadowRadius, height: -UIView.shadowRadius)
+        darkShadow.shadowOpacity = 1
+        darkShadow.shadowRadius = UIView.shadowRadius
+        self.layer.insertSublayer(darkShadow, at: 0)
+
+        let lightShadow = CALayer()
+        lightShadow.name = "lightShadow"
+        lightShadow.frame = bounds
+        lightShadow.backgroundColor = backgroundColor?.cgColor
+        lightShadow.shadowColor = UIColor.white.cgColor
+        lightShadow.cornerRadius = self.layer.cornerRadius
+        lightShadow.shadowOffset = CGSize(width: UIView.shadowRadius, height: UIView.shadowRadius)
+        lightShadow.shadowOpacity = 1
+        lightShadow.shadowRadius = UIView.shadowRadius
+        self.layer.insertSublayer(lightShadow, at: 0)
     }
     
     
