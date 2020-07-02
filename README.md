@@ -7,7 +7,7 @@
 
 ## Installation
 
-Use the package manager [cocoapods](https://pip.pypa.io/en/stable/) to install ZNeumorphic.
+Use the package manager [cocoapods](https://cocoapods.org/pods/ZNeumorphic) to install ZNeumorphic.
 ```bash
 pod install ZNeumorphic
 ```
