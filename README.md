@@ -9,7 +9,7 @@
 
 Use the package manager [cocoapods](https://cocoapods.org/pods/ZNeumorphic) to install ZNeumorphic.
 ```bash
-pod install ZNeumorphic
+pod 'ZNeumorphic'
 ```
 
 ## Usage
