@@ -1,7 +1,6 @@
 # ZNeumorphic
 
 ![](https://img.shields.io/cocoapods/v/ZNeumorphic.svg?style=flat)
-![](https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat)
 ![](https://img.shields.io/badge/language-swift-orange.svg)
 ![](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 
