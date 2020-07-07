@@ -12,7 +12,15 @@ import UIKit
 public extension UIView{
     
     static var shadowRadius: CGFloat = 2
+    static var rNeColor:CGFloat = 0.87
+    static var gNeColor:CGFloat = 0.89
+    static var bNeColor:CGFloat = 0.93
     
+    func setNeBGColor(r:CGFloat,g:CGFloat,b:CGFloat){
+        UIView.rNeColor = r
+        UIView.gNeColor = g
+        UIView.bNeColor = b
+    }
     /// 凸起
     func SoftRaised(){
         
@@ -29,7 +37,8 @@ public extension UIView{
         darkShadow.name = "darkShadow"
         darkShadow.frame = bounds
         darkShadow.backgroundColor = backgroundColor?.cgColor
-        darkShadow.shadowColor = UIColor(red: 0.87, green: 0.89, blue: 0.93, alpha: 1.0).cgColor
+        //darkShadow.shadowColor = UIColor(red: 0.87, green: 0.89, blue: 0.93, alpha: 1.0).cgColor
+        darkShadow.shadowColor = UIColor(red: UIView.rNeColor, green: UIView.gNeColor, blue: UIView.bNeColor, alpha: 1.0).cgColor
         darkShadow.cornerRadius = self.layer.cornerRadius
         darkShadow.shadowOffset = CGSize(width: UIView.shadowRadius, height: UIView.shadowRadius)
         darkShadow.shadowOpacity = 1
